@@ -1,9 +1,9 @@
 from flask import Flask
 
-from App.config import envs
+from App.config import envs, basedir
 from App.ext import init_ext
-from App.views import blue, init_first_blue, get_oid
 from App import models
+from App.views import init_first_blue
 
 
 def create_app():
@@ -19,8 +19,6 @@ def create_app():
 
     # 初始化第三方库
     init_ext(app)
-
-    get_oid(app)
 
     return app
 
